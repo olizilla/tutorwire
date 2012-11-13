@@ -12,3 +12,5 @@ dist
 /.classpath
 /.project
 /RUNNING_PID
+.ensime
+.ensime_lucene
