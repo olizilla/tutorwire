@@ -5,12 +5,18 @@ The best home tutoring community on the web.
 
 Stack
 -----
+- Heroku
+  - Play!
+  - PostgreSQL
 
-- Play!
-- PostgreSQL
 
 Useful Commands
 ---------------
+
+## Heroku
+
+	git push heroku master
+	heroku ps
 
 ### Postgres
 
