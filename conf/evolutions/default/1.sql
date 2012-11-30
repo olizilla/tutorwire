@@ -6,7 +6,7 @@
 CREATE TABLE Tutor (
 	id		varchar(10)  not null primary key,
 	email	varchar(255) not null,
-	name	varchar(255) not null				
+	name	varchar(255) not null
 );
 
 # --- !Downs

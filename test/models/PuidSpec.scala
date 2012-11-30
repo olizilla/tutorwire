@@ -9,7 +9,7 @@ class PuidSpec extends Specification {
 
 	val puid = Puid()
 
-	"A Puid like: " + puid should {	
+	"A Puid like: " + puid should {
 
 		"contain at least 6 chars" in {
 			puid.length() must beGreaterThanOrEqualTo(6)
