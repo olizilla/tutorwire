@@ -4,6 +4,7 @@
   "description": "Find Tutors Fast",
   "main": "grunt.js",
   "scripts": {
+    "postinstall": "echo postinstall time; ./node_modules/grunt/bin/grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,8 +25,9 @@
   }],
   "readmeFilename": "README.md",
   "dependencies": {
+    "grunt":"~0.3.17",
     "grunt-contrib": "~0.3.0",
-    "grunt-include-replace":"0.1.0rc0",
+    "grunt-include-replace":"0.0.0-beta",
     "express": "3.x",
     "handlebars": "~1.0.8",
     "consolidate": "~0.8.0"
