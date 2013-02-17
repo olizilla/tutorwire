@@ -64,11 +64,7 @@ function findPage(req, res) {
 	res.render('find');
 }
 
-if(!process.argv[2]) {
-	console.log('No port specified');
-	return;
-}
-
-app.listen(process.argv[2]);
-
-console.log('Listening on port', process.argv[2]);
+var port = process.env.PORT || process.argv[2] || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
