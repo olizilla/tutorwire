@@ -1,0 +1,11 @@
+/* http://www.fontsquirrel.com/fonts/Tiza */
+@font-face {
+    font-family: 'TizaRegular';
+    src: url('/font/tiza-webfont.eot');
+    src: url('/font/tiza-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/tiza-webfont.woff') format('woff'),
+         url('/font/tiza-webfont.ttf') format('truetype'),
+         url('/font/tiza-webfont.svg#TizaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

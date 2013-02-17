@@ -9,13 +9,14 @@ app.configure(function() {
 	app.engine('html', consolidate.handlebars);
 	app.set('view engine', 'html');
 	app.set('views', __dirname + '/client_compiled');
+	app.use(express.bodyParser());
 });
 
 statics.init(app);
 
 app.get('/', indexPage);
 app.post('/', subjectSearch);
-app.get('/subject/:subject', subjectPage);
+app.get('/learn/:subject', subjectPage);
 app.get('/join', joinPage);
 app.get('/find', findPage);
 
@@ -29,17 +30,27 @@ function indexPage(req, res) {
 }
 
 function subjectSearch(req, res){
-	console.log(req)
-	findPage(req, res)
+	console.log(req);
+	findPage(req, res);
 }
 
 function subjectSearch(req, res){
-	subjectPage(req, res)
+	// what is the subject
+	// console.log(req.body);
+	var subject = req.body.subject;
+	if(!subject){
+		res.redirect('/');
+	}
+	res.redirect('/learn/' + subject.toLowerCase());
 }
 
 function subjectPage(req, res){
-	var subject = req.params.subject
-
+	var subject = req.params.subject;
+	//TODO: handle nonsense here
+	res.render('learn', {
+		subject: subject,
+		tutors: data.findTutorsBySubject(subject)
+	});
 }
 
 /**

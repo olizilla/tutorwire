@@ -1,13 +1,11 @@
-/* main.less */
-
+// @import '../font/tiza.css';
 @import 'bootstrap.min.css';
 @import 'bootstrap-responsive.min.css';
 
-@base-color: #333;
-
 body{
-	background: @base-color url('/img/blackboard.jpg') no-repeat;
+	background: #333 url('/img/blackboard.jpg') no-repeat;
 	background-size: cover;
+	color:white;
 }
 
 .navbar-inner {
@@ -16,9 +14,58 @@ body{
 
 h1{
 	font-family: 'Permanent Marker', cursive;
+	// font-family: 'TizaRegular', cursive; 
 	color:white;
 	opacity: 0.8;
 }
+
+.profile{
+	margin-bottom: 20px;
+	border-bottom: 4px solid #111;
+
+	.name{
+		display:inline;
+		color:dodgerblue;
+		font-size: 2em;
+		font-weight:bold;
+	}
+	.desc{
+		display:inline-block;
+	}
+	.photoExander{
+		// width:140px;
+		// height:140px;
+		vertical-align: middle;  
+		display:inline-block;
+		// position:relative;
+	}
+	.photoFrame{  
+		width:140px;
+		height:140px;
+		// position:absolute;
+		// top:0; left:0;  
+		border-bottom:0;
+
+		-webkit-transition: width 1s, height 1s, z-index 1s, background-color 1s;
+		   -moz-transition: width 1s, height 1s, z-index 1s, background-color 1s;
+		        transition: width 1s, height 1s, z-index 1s, background-color 1s;
+	}
+	.photoFrame.lrg{
+		width:300px; height:300px;
+		z-index:20;
+	}
+}
+.photoFrame{
+	border:solid 4px #111;
+	border-radius: 4px;
+	display:inline-block;
+	vertical-align:top;
+}
+.photoFrame img{
+	width:100%;
+	height:100%;
+}
+
 
 #map{
 	width:100%;

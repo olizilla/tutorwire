@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 					// Copy other resources
 					'client_compiled/img/': 'client/img/**',
 
-					//'client_compiled/font/': 'client/font/**'
+					'client_compiled/font/': 'client/font/**'
 				}
 			}
 		},
@@ -50,8 +50,7 @@ module.exports = function(grunt) {
 		less: {
 			compile: {
 				files: {
-					'client_compiled/css/main.css': 'client/css/main.less',
-					'client_compiled/css/ie.css': 'client/css/ie.less'
+					'client_compiled/css/main.css': 'client/css/main.less'
 				}
 			}
 		},

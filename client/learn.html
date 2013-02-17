@@ -1,0 +1,18 @@
+@@include('html/layout-top.html', {"id": "join", "title": "Join TutorWire"})
+
+<h1>Learn <span class="subject">{{subject}}</span> with</h1>
+
+{{#tutors}}
+<div class="profile">
+	<div class="photoExander">
+		<div class="photoFrame">
+			{{#if photo}}<img src="{{photo}}">{{/if}}
+		</div>
+	</div>
+	<div class="name">{{name}}</div>
+	<div class="desc">teaches {{subjects}} in {{area}}</div>
+	<div class="rating"></div>
+</div>
+{{/tutors}}
+
+@@include('html/layout-bottom.html')
