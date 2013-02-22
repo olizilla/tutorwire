@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 		watch: {
 			project: {
 				files: ['client/js/**/*.coffee', 'client/css/**/*.less', 'client/**/*.html'],
-				tasks: 'copy includereplace less coffee'
+				tasks: ['copy', 'includereplace', 'less', 'coffee']
 			}
 		}
 	});

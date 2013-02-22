@@ -1,6 +1,6 @@
+
+
 jQuery -> 
-	
-	console.log('woohoo');
 
 	$('.photoExander .photoFrame').hover(
 		->
@@ -8,3 +8,5 @@ jQuery ->
 		->
 			$(this).removeClass('lrg')
 	);
+
+

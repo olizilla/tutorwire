@@ -1,5 +1,7 @@
 var express = require('express');
 var consolidate = require('consolidate');
+var geocoder = require('geocoder');
+
 var statics = require('./statics');
 var data = require('./data.mem');
 
@@ -19,6 +21,7 @@ app.post('/', subjectSearch);
 app.get('/learn/:subject', subjectPage);
 app.get('/join', joinPage);
 app.get('/find', findPage);
+app.get('/geocode/:place', geocode);
 
 /**
  * Do a home page
@@ -62,6 +65,13 @@ function joinPage(req, res) {
 
 function findPage(req, res) {
 	res.render('find');
+}
+
+function geocode(req, res){
+	var place = req.params.place;
+	geocoder.geocode(place, function(err, data){
+		res.json(data);
+	});
 }
 
 var port = process.env.PORT || process.argv[2] || 5000;

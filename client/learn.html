@@ -2,6 +2,8 @@
 
 <h1>Learn <span class="subject">{{subject}}</span> with</h1>
 
+@@include('html/map-leaflet.html')
+
 {{#tutors}}
 <div class="profile">
 	<div class="photoExander">
@@ -10,9 +12,45 @@
 		</div>
 	</div>
 	<div class="name">{{name}}</div>
-	<div class="desc">teaches {{subjects}} in {{area}}</div>
+	<div class="desc">teaches <span class="subjects">{{subjects}}</span> in <span class="area">{{area}}</span></div>
 	<div class="rating"></div>
 </div>
 {{/tutors}}
+
+<script>
+	
+function addMarkerAt(geocode){
+	var coords = geocode.geometry.location
+	if (!coords){
+		return false;
+	}
+	var longitude = coords.lng;
+	var latitude = coords.lat;
+
+	if (!latitude || !longitude){
+		return false;
+	}
+
+	var marker = L.marker([latitude, longitude], {
+		opacity: 1,
+		riseOnHover: true,
+		title: geocode.formatted_address
+	});
+
+	console.log('Created marker', marker);
+
+	marker.addTo(map);
+}
+
+$('.area').each(function(index, area){
+	console.log($(area).text());
+	$.getJSON('/geocode/' + $(area).text(), function(data){
+		if(data.status !== 'ZERO_RESULTS'){
+			addMarkerAt(data.results[0]);
+		}
+		
+	});
+});
+</script>
 
 @@include('html/layout-bottom.html')

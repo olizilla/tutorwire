@@ -30,7 +30,8 @@
     "grunt-include-replace": "~0.1.0",
     "express": "3.x",
     "handlebars": "~1.0.8",
-    "consolidate": "~0.8.0"
+    "consolidate": "~0.8.0",
+    "geocoder": "~0.1.0"
   },
   "engines": {
     "node": ">=0.8",
