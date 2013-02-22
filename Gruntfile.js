@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 		},
 		
 		// Minify the site script
-		min: {
+		uglify: {
 			compress: {
 				src: 'client_compiled/js/main.js',
 				dest: 'client_compiled/js/main.js'
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		},
 		
 		// Minify the site CSS
-		mincss: {
+		cssmin: {
 			compress: {
 				files: {
 					'client_compiled/css/main.css': 'client_compiled/css/main.css',
@@ -86,5 +86,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib');
 	grunt.loadNpmTasks('grunt-include-replace');
 	
-	grunt.registerTask('default', 'copy includereplace coffee less min mincss');
+	grunt.registerTask('default', ['copy', 'includereplace', 'coffee', 'less', 'uglify', 'cssmin']);
 };
