@@ -9,10 +9,17 @@ var map;
 
 	map = L.map('map').setView([54,-1], 6);
 
-	L.tileLayer("http://{s}tile.stamen.com/toner-2011-lite/{z}/{x}/{y}.png", {
+	// L.tileLayer("http://{s}tile.stamen.com/toner-2011-lite/{z}/{x}/{y}.png", {
+	// 	"minZoom":      0,
+	// 	"maxZoom":      20,
+	// 	"subdomains":   ["", "a.", "b.", "c.", "d."],
+	// 	"scheme":       "xyz"
+	// }).addTo(map);
+				
+	L.tileLayer("http://{s}.tiles.mapbox.com/v3/tutorwire.map-rbl1tiup/{z}/{x}/{y}.png", {
 		"minZoom":      0,
-		"maxZoom":      20,
-		"subdomains":   ["", "a.", "b.", "c.", "d."],
+		"maxZoom":      19,
+		"subdomains":   ["a", "b", "c", "d"],
 		"scheme":       "xyz"
 	}).addTo(map);
 

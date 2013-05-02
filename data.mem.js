@@ -1,8 +1,13 @@
 var names = require('./data/names')();
+var uk = require('./lib/uk-city-geocode.js');
 
 // Get the good stuff outta a wikitable:
-// $('.wikitable').find('td:first-child > a').map(function(index, element){ return $(this).text()})
-var areas = ["Bath", "Birmingham", "Bradford", "Brighton & Hove", "Bristol", "Cambridge", "Canterbury", "Carlisle", "Chelmsford", "Chester", "Chichester", "Coventry", "Derby", "Durham", "Ely", "Exeter", "Gloucester", "Hereford", "Kingston upon Hull", "Lancaster", "Leeds", "Leicester", "Lichfield", "Lincoln", "Liverpool", "City of London", "Manchester", "Newcastle upon Tyne", "Norwich", "Nottingham", "Oxford", "Peterborough", "Plymouth", "Portsmouth", "Preston", "Ripon", "Salford", "Salisbury", "Sheffield", "Southampton", "St Albans", "Stoke-on-Trent", "Sunderland", "Truro", "Wakefield", "Wells", "City of Westminster", "Winchester", "Wolverhampton", "Worcester", "York", "Aberdeen", "Scots", "Scottish Gaelic", "Dundee", "Scottish Gaelic", "Edinburgh", "Scottish Gaelic", "Glasgow", "Scots", "Scottish Gaelic", "Inverness", "Scottish Gaelic", "Perth", "Scots", "Scottish Gaelic", "Stirling", "Scots", "Scottish Gaelic", "Bangor", "Cardiff", "Welsh", "Newport", "Welsh", "St Asaph", "Welsh", "St David's", "Welsh", "Swansea", "Welsh", "Armagh", "Irish", "Ulster-Scots", "Belfast", "Irish", "Ulster-Scots", "Derry", "Irish", "Ulster-Scots", "Lisburn", "Irish", "Newry", "Irish", "Ulster-Scots"];
+// $('.wikitable').find('td:first-child > a:first-child').map(function(index, element){ return $(this).text()})
+// "St David's" ---> killed
+// Brighton & Hove --> Brighton
+// "City of Westminster" killed
+// "City of London"--> London
+var areas = ["Bath", "Birmingham", "Bradford", "Brighton", "Bristol", "Cambridge", "Canterbury", "Carlisle", "Chelmsford", "Chester", "Chichester", "Coventry", "Derby", "Durham", "Ely", "Exeter", "Gloucester", "Hereford", "Kingston upon Hull", "Lancaster", "Leeds", "Leicester", "Lichfield", "Lincoln", "Liverpool", "London", "Manchester", "Newcastle upon Tyne", "Norwich", "Nottingham", "Oxford", "Peterborough", "Plymouth", "Portsmouth", "Preston", "Ripon", "Salford", "Salisbury", "Sheffield", "Southampton", "St Albans", "Stoke-on-Trent", "Sunderland", "Truro", "Wakefield", "Wells", "Winchester", "Wolverhampton", "Worcester", "York", "Aberdeen", "Dundee", "Edinburgh", "Glasgow", "Inverness", "Perth", "Stirling", "Bangor", "Cardiff", "Newport", "St Asaph", "Swansea", "Armagh", "Belfast", "Derry", "Lisburn", "Newry"];
 
 // http://www.londonmet.ac.uk/courses/undergraduate.cfm?coursedata=ug-09-2011&subject=ALL
 // JSON.stringify(jQuery('.fb_courselink').map(function(i,e){return jQuery(e).text()}).get())
@@ -55,5 +60,15 @@ module.exports = {
 
 	findPopularSubjects: function(){
 		return subjects;
+	},
+
+	findPopularAreas:function(){
+		return areas;
+	},
+
+	findUkGeocode: function(place){
+		var res = uk[place];
+		console.log(place, res);
+		return res;
 	}
 };

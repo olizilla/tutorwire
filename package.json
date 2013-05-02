@@ -2,9 +2,8 @@
   "name": "tutorwire",
   "version": "0.1.0",
   "description": "Find Tutors Fast",
-  "main": "grunt.js",
+  "main": "main.js",
   "scripts": {
-    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,14 +24,15 @@
   }],
   "readmeFilename": "README.md",
   "dependencies": {
-    "grunt": "~0.4.0",
-    "grunt-cli": "~0.1.6",
-    "grunt-contrib": "~0.4.0",
-    "grunt-include-replace": "~0.1.0",
     "express": "3.x",
     "handlebars": "~1.0.8",
     "consolidate": "~0.8.0",
     "geocoder": "~0.1.0"
+  },
+  "devDependencies":{
+    "grunt": "~0.4.1",
+    "grunt-contrib": "~0.4.0",
+    "grunt-include-replace": "~0.1.0"
   },
   "engines": {
     "node": ">=0.8",

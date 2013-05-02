@@ -1,23 +1,52 @@
 @@include('html/layout-top.html', {"id": "join", "title": "Join TutorWire"})
 
-<h1>Learn <span class="subject">{{subject}}</span> with</h1>
+<h1>Learn</h1> 
+<form method="post" class="form-what">
+	<div class="">
+		<input name="subject" value="{{subject}}" type="text" class="" autocomplete="off" data-provide="typeahead" data-source='{{{popularSubjects}}}'>
+<!-- 		<button type="submit" class="btn">Search</button> -->
+	</div>
+</form>
+
+<h2>Near</h2>
+<form method="post" class="form-where">
+	<div class="">
+		<input name="area" value="UK" type="text" class="input-area" autocomplete="off">
+<!-- 	<input name="subject" value="UK" type="text" class="" autocomplete="off" data-provide="typeahead" data-source='{{{popularAreas}}}'> -->
+<!-- 	<button type="submit" class="btn">Search</button> -->
+	</div>
+</form>
 
 @@include('html/map-leaflet.html')
 
+<div class="results">
 {{#tutors}}
-<div class="profile">
-	<div class="photoExander">
-		<div class="photoFrame">
-			{{#if photo}}<img src="{{photo}}">{{/if}}
+	<div class="profile">
+		<div class="photoExander">
+			<div class="photoFrame">
+				{{#if photo}}<img src="{{photo}}">{{/if}}
+			</div>
 		</div>
+		<div class="name">{{name}}</div>
+		<div class="desc">teaches <span class="subjects">{{subjects}}</span> in <span class="area">{{area}}</span></div>
+		<div class="rating"></div>
 	</div>
-	<div class="name">{{name}}</div>
-	<div class="desc">teaches <span class="subjects">{{subjects}}</span> in <span class="area">{{area}}</span></div>
-	<div class="rating"></div>
-</div>
 {{/tutors}}
+</div>
 
+<script src="/js/uk-cities.js"></script>
 <script>
+
+var inputArea = $('.input-area');
+inputArea.typeahead({ source: app.uk.getCityNames });
+inputArea.on('change', function(evt){
+	var cityName = $(this).val();
+	var cityData = app.uk.cities[cityName];
+	console.log("Selected:", cityName, cityData);
+	L.marker(cityData).addTo(map);
+	map.setView(cityData, 11);
+
+});
 	
 function addMarkerAt(geocode){
 	var coords = geocode.geometry.location

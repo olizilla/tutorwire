@@ -2,4 +2,44 @@
 
 <h1>Join</h1>
 
+<p>Start creating your tutoring profile</p>
+
+<form method="post" class="form-horizontal">
+	<div class="control-group">
+		<label class="control-label" for="email">Email</label>
+		<input type="text" name="email">
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="email">Email</label>
+		<input type="text" name="email">
+	</div>
+	
+	teaches
+	<input name="subject" type="text" class="" autocomplete="off" data-provide="typeahead" data-source='{{{popularSubjects}}}'>
+
+	<div class="profile">
+		
+		<div class="name"></div>
+
+		<div class="photoExander">
+			<div class="photoFrame">
+				{{#if photo}}<img src="{{photo}}">{{/if}}
+			</div>
+		</div>
+		
+		<div class="desc">teaches <span class="subjects">{{subjects}}</span> in <span class="area">{{area}}</span></div>
+		<div class="rating"></div>
+	</div>
+
+
+	<div class="control-group">
+		<label class="control-label" for="inputEmail">Email</label>
+		<div class="controls">
+			<input type="text" id="inputEmail">
+		</div>
+	</div>
+	<button type="submit" class="btn">Submit</button>
+</form>
+
+
 @@include('html/layout-bottom.html')

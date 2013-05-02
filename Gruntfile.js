@@ -5,28 +5,47 @@ module.exports = function(grunt) {
 		// Copy files that don't need compilation to client_compiled/
 		copy: {
 			dist: {
-				files: {
+				// files: {
+
+				// 	// Copy all (non hidden) files (not directories) from src
+				// 	'client_compiled/': 'client/*',
+					
+				// 	// Copy the following hidden files
+				// 	//'client_compiled/.htaccess': 'client/.htaccess',
+					
+				// 	// Copy any JavaScript files (not CoffeeScript src)
+				// 	'client_compiled/js/': 'client/js/*.js',
+					
+				// 	// For the time being, you'll have to uncomment parts of this when you add files to folders that
+				// 	// currently have nothing in them!
+				// 	// @see https://github.com/gruntjs/grunt-contrib-copy/issues/6
+					
+				// 	// Copy any CSS files (not LESS src)
+				// 	//'client_compiled/css/': 'client/css/**/*.css',
+					
+				// 	// Copy other resources
+				// 	'client_compiled/img/': 'client/img/**',
+
+				// 	'client_compiled/font/': 'client/font/**'
+				// }
+
+				files: [
 					// Copy all (non hidden) files (not directories) from src
-					'client_compiled/': 'client/*',
+					{dest: 'client_compiled/', src: '*', filter: 'isFile', expand: true, cwd: 'client/'},
 					
 					// Copy the following hidden files
-					//'client_compiled/.htaccess': 'client/.htaccess',
+					// {dest: 'client_compiled/.htaccess', src: 'client/.htaccess'},
 					
 					// Copy any JavaScript files (not CoffeeScript src)
-					'client_compiled/js/': 'client/js/**/*.js',
-					
-					// For the time being, you'll have to uncomment parts of this when you add files to folders that
-					// currently have nothing in them!
-					// @see https://github.com/gruntjs/grunt-contrib-copy/issues/6
+					{dest: 'client_compiled/', src: 'js/**/*.js', expand: true, cwd: 'client/'},
 					
 					// Copy any CSS files (not LESS src)
-					//'client_compiled/css/': 'client/css/**/*.css',
+					{dest: 'client_compiled/', src: 'css/**/*.css', expand: true, cwd: 'client/'},
 					
 					// Copy other resources
-					'client_compiled/img/': 'client/img/**',
-
-					'client_compiled/font/': 'client/font/**'
-				}
+					{dest: 'client_compiled/', src: 'img/**', expand: true, cwd: 'client/'},
+					{dest: 'client_compiled/', src: 'font/**', expand: true, cwd: 'client/'}
+				]				
 			}
 		},
 
